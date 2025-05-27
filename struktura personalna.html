@@ -104,10 +104,36 @@
   @media (max-width: 768px) {
     .box { min-width: 160px; padding: 12px 16px; font-size: 0.95rem; }
   }
+
+#back-button {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    background-color: #7c1021;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  #back-button:hover {
+    background-color: #a0142a;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+  }
+
 </style>
 </head>
 
 <body>
+
+<a href="index.html" id="back-button">⬅ Powrót</a>
+
 <div class="container">
 <div class="section">
 <div class="box color-main" data-group="top" data-target="bartlomiej">👑 Bartłomiej Sujkowski<div class="title-small">Prezes Zarządu</div></div>
