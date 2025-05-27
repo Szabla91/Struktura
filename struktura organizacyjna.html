@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktura Organizacyjna</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --prezes-color: #007BFF;
+      --wiceprezes-color: #6f42c1;
+      --backoffice-color: #28a745;
+      --sprzedaz-color: #17a2b8;
+      --operacyjny-color: #ffc107;
+      --it-color: #6f42c1;
+      --bg-light: #f9fafc;
+      --bg-box: #ffffff;
+      --border-color: #e0e6ed;
+      --text-main: #1b1f23;
+
+      /* Precyzyjne szerokości dla dokładnego pozycjonowania */
+      --pion-width: 300px; /* Szerokość każdego pionu */
+      --gap-regular: 48px; /* Standardowy odstęp między kolumnami pionów */
+      --gap-it-extra: 100px; /* Dodatkowy odstęp kolumny przed Pionem IT */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg-light);
+ background-image: url("bbats_logo.png");
+background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  background-attachment: fixed;
+  opacity: 1;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 80px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Główny kontener, który będzie zarządzał całym układem jako grid */
+    .org-chart-container {
+      display: grid;
+      /* Definiujemy kolumny tak, aby odpowiadały położeniu pionów:
+         kol1 (Backoffice), kol2 (Sprzedaż), kol3 (Operacyjny), kol4 (dodatkowy gap), kol5 (IT) */
+      grid-template-columns: var(--pion-width) var(--pion-width) var(--pion-width) var(--gap-it-extra) var(--pion-width);
+      gap: var(--gap-regular); /* Standardowy odstęp między kolumnami */
+      justify-content: center; /* Centruje cały grid na stronie */
+      align-items: start;
+      max-width: fit-content; /* Szerokość dostosowana do zawartości gridu */
+      width: 100%; /* Zapewnia, że nie będzie szerszy niż viewport */
+    }
+
+    /* Style dla bloków zarządu */
+    .prezes, .wiceprezes {
+      background-color: var(--bg-box);
+      padding: 32px 48px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      width: var(--pion-width); /* Zarząd ma taką samą szerokość jak piony */
+      transition: all 0.2s ease;
+      margin-bottom: 80px; /* Odstęp między zarządem a pionami */
+    }
+
+    .prezes {
+      border: 3px solid var(--prezes-color);
+      grid-column: 2 / span 1; /* Prezes w drugiej kolumnie grida (nad Pionem Sprzedaży) */
+      justify-self: center; /* Centrujemy Prezesa w jego komórce grida */
+    }
+
+    .wiceprezes {
+      border: 3px solid var(--wiceprezes-color);
+      grid-column: 5 / span 1; /* Wiceprezes w piątej kolumnie grida (nad Pionem IT) */
+      justify-self: center; /* Centrujemy Wiceprezesa w jego komórce grida */
+    }
+
+    .prezes:hover, .wiceprezes:hover {
+      background-color: #f1f3f5;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Style dla bloków pionów */
+    .column {
+      background-color: var(--bg-box);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      transition: all 0.2s ease;
+      width: var(--pion-width); /* Stała szerokość dla wszystkich pionów */
+      grid-row: 2; /* Wszystkie piony są w drugim rzędzie grida */
+    }
+
+    /* Pozycjonowanie pionów w gridzie - są kolejno w kolumnach */
+    .backoffice { grid-column: 1 / span 1; }
+    .sprzedaz { grid-column: 2 / span 1; }
+    .operacyjny { grid-column: 3 / span 1; }
+    .it { grid-column: 5 / span 1; } /* Pion IT jest w piątej kolumnie, czwarta to gap */
+
+    .column:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .column .title {
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: white;
+      width: 100%;
+    }
+
+    .backoffice .title { background-color: var(--backoffice-color); }
+    .sprzedaz .title { background-color: var(--sprzedaz-color); }
+    .operacyjny .title { background-color: var(--operacyjny-color); }
+    .it .title { background-color: var(--it-color); }
+
+    .box {
+      padding: 12px 16px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-align: center;
+      border: 2px solid transparent;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .box:hover {
+      background-color: #e9ecef;
+      transform: scale(1.02);
+    }
+
+    .backoffice .box { border-color: var(--backoffice-color); }
+    .sprzedaz .box { border-color: var(--sprzedaz-color); }
+    .operacyjny .box { border-color: var(--operacyjny-color); }
+    .it .box { border-color: var(--it-color); }
+
+    /* Upewnienie się, że nie ma żadnych linii łączących */
+    .prezes::after,
+    .wiceprezes::after,
+    .column::before,
+    .column::after {
+        display: none !important;
+    }
+
+    /* Responsywność */
+    @media (max-width: 1300px) {
+      .org-chart-container {
+        grid-template-columns: 1fr; /* Na małych ekranach wszystko w jednej kolumnie */
+        gap: 30px;
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      .prezes, .wiceprezes {
+        grid-column: 1 / span 1; /* Zarząd również w pierwszej kolumnie */
+        width: 100%;
+        max-width: var(--pion-width); /* Ograniczamy szerokość, by nie były za szerokie */
+        margin-bottom: 0; /* Resetujemy margines, bo gapy grida załatwią odstępy */
+        justify-self: center; /* Centrowanie w kolumnie */
+      }
+
+      .column {
+        grid-column: 1 / span 1; /* Pion również w pierwszej kolumnie */
+        grid-row: unset; /* Resetujemy pozycjonowanie rzędu */
+        width: 100%;
+        max-width: var(--pion-width); /* Ograniczamy szerokość */
+        justify-self: center; /* Centrowanie w kolumnie */
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 40px 16px;
+      }
+      .prezes, .wiceprezes, .column {
+        padding: 24px 16px;
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="org-chart-container">
+    <div class="prezes">Prezes Zarządu</div>
+    <div></div> <div></div> <div class="wiceprezes">Wiceprezes Zarządu</div>
+
+    <div class="column backoffice">
+      <div class="title">Pion Backoffice</div>
+      <div class="box">Dział Administracji i Kadr</div>
+      <div class="box">Dział Bezpieczeństwa i Jakości</div>
+      <div class="box">Dział Księgowości</div>
+    </div>
+
+    <div class="column sprzedaz">
+      <div class="title">Pion Sprzedaży</div>
+      <div class="box">Departament Sprzedaży</div>
+    </div>
+
+    <div class="column operacyjny">
+      <div class="title">Pion Operacyjny</div>
+      <div class="box">Dział MLK</div>
+      <div class="box">Dział Drogowy</div>
+    </div>
+
+    <div></div>
+
+    <div class="column it">
+      <div class="title">Pion IT</div>
+      <div class="box">Dział IT</div>
+    </div>
+  </div>
+</body>
+</html>

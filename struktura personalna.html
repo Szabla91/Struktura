@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Struktura Personalna</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --main-color: #007BFF;
+    --green: #28a745;
+    --green-dark: #218838;
+    --cyan: #17a2b8;
+    --cyan-dark: #138496;
+    --yellow: #ffc107;
+    --yellow-dark: #e0a800;
+    --purple: #6f42c1;
+    --bg: #f9fafc;
+    --box-bg: #ffffff;
+    --border: #e0e6ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: url("bbats_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  background-attachment: fixed;
+  opacity: 1;
+  padding: 48px 24px;
+  color: #1b1f23;
+}
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    max-width: 1600px;
+    margin: auto;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .box {
+    background: var(--box-bg);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 24px;
+    min-width: 280px;
+    max-width: 300px;
+    height: auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #111;
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+    cursor: pointer;
+    transition: all 0.6s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+
+  .title-small {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #555;
+    align-self: center;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .hidden { display: none !important; }
+
+  .color-main { border-color: var(--main-color); }
+  .color-kasia, .color-eliza { border-color: var(--green); }
+  .color-paulina { border-color: var(--green-dark); }
+  .color-mateusz { border-color: var(--cyan); }
+  .color-damian { border-color: var(--cyan-dark); }
+  .color-maksym, .color-jan { border-color: var(--cyan); }
+  .color-kamil, .color-patrycja { border-color: var(--yellow); }
+  .color-cezary { border-color: var(--yellow-dark); }
+  .color-barnaba, .color-baltazar { border-color: var(--purple); }
+
+  @media (max-width: 768px) {
+    .box { min-width: 160px; padding: 12px 16px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="section">
+<div class="box color-main" data-group="top" data-target="bartlomiej">👑 Bartłomiej Sujkowski<div class="title-small">Prezes Zarządu</div></div>
+<div class="box color-barnaba" data-group="top" data-target="barnaba">Barnaba Kujszczyk<div class="title-small">Wiceprezes Zarządu</div></div>
+</div>
+<div class="section hidden" id="bartlomiej">
+<div class="box color-kasia" data-group="main-group" data-target="kasia">🧠 Katarzyna Samot<div class="title-small">Dyrektor ds. Rozwoju</div></div>
+<div class="box color-eliza" data-group="main-group" data-target="eliza">💰 Eliza Selmaj-Zalewska<div class="title-small">Dyrektor Finansowy</div></div>
+<div class="box color-mateusz" data-group="main-group" data-target="mateusz">📈 Mateusz Myszyński<div class="title-small">Kierownik Departamentu Sprzedaży i Doradztwa Logistycznego</div></div>
+<div class="box color-kamil" data-group="main-group" data-target="kamil">📦 Kamil Szablewski<div class="title-small">Kierownik Działu Spedycji i Wsparcia Sprzedaży</div></div>
+<div class="box color-patrycja" data-group="main-group" data-target="patrycja">🚚 Patrycja Pyjecka<div class="title-small">Dyrektor działu Drogowego</div></div>
+</div>
+<div class="section hidden" id="barnaba">
+<div class="box color-barnaba">💻 Baltazar Kujszczyk<div class="title-small">Kierownik Działu IT</div></div>
+</div>
+<div class="section hidden" id="kasia">
+<div class="box color-kasia">Dorota Kucka<div class="title-small">Specjalista ds. Bezpieczeństwa i Jakości</div></div>
+<div class="box color-paulina" data-group="group-1a" data-target="paulina">⭐Paulina Kuźnicka<div class="title-small">Kierownik działu Administracji i Kadr</div></div>
+</div>
+<div class="section hidden" id="paulina">
+<div class="box color-paulina">Aleksandra Bryś<div class="title-small">Ekspert ds. Administracji</div></div>
+<div class="box color-paulina">Beata Bolesta<div class="title-small">Ekspert ds. Rozliczeń i Windykacji</div></div>
+<div class="box color-paulina">Michał Piekarek<div class="title-small">Pracownik Administracji</div></div>
+<div class="box color-paulina">Weronika Zagórska<div class="title-small">Asystent Departamentu Sprzedaży</div></div>
+</div>
+<div class="section hidden" id="eliza">
+<div class="box color-eliza">Beata Gawrońska<div class="title-small">Księgowa</div></div>
+</div>
+<div class="section hidden" id="mateusz">
+<div class="box color-damian" data-group="group-2a" data-target="damian">⭐ Damian Staszewski<div class="title-small">Team Manager</div></div>
+<div class="box color-maksym" data-group="group-2a" data-target="maksym">⭐ Maksym Klymko<div class="title-small">Team Manager</div></div>
+<div class="box color-jan" data-group="group-2a" data-target="jan">⭐ Jan Piwowarski<div class="title-small">Team Manager</div></div>
+</div>
+<div class="section hidden" id="damian">
+<div class="box color-damian">Adam Brodziak<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-damian">Kamil Niedźwiecki<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-damian">Karol Dakowicz<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-damian">Kinga Sadło<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-damian">Mikołaj Ławski<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-damian">Monika Pryczynicz<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+</div>
+<div class="section hidden" id="maksym">
+<div class="box color-maksym">Adam Moczulski<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Bartosz Bołba<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Dawid Majewski<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Jakub Kaliszuk<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Kacper Ostrowski<div class="title-small">Ekspert ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Karol Kryczka<div class="title-small">Ekspert ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-maksym">Patrycja Marcinkiewicz<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+</div>
+<div class="section hidden" id="jan">
+<div class="box color-jan">Aleksandra Sroka<div class="title-small">Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Anna Sujkowska<div class="title-small">Młodszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Bartosz Kłaput<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Filip Paśniczek<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Katarzyna Majewska<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Maria Chrostowska<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Mateusz Lasecki<div class="title-small">Starszy Doradca ds. Sprzedaży i Obsługi Klienta</div></div>
+<div class="box color-jan">Patryk Cieplak<div class="title-small">Asystent Działu Sprzedaży i Operacji</div></div>
+</div>
+<div class="section hidden" id="kamil">
+<div class="box color-cezary">⭐Cezary Olczak<div class="title-small">Kierownik Działu Kolejowego</div></div>
+<div class="box color-cezary">Adam Hys<div class="title-small">Ekspert ds. Obsługi Logistycznej Transportu Kolejowego i Morskiego</div></div>
+<div class="box color-cezary">Aleksander Nowiński<div class="title-small">Ekspert ds. Obsługi Logistycznej Transportu Kolejowego i Lotniczego</div></div>
+<div class="box color-cezary">Aleksandra Sokół<div class="title-small">Spedytor Kolejowy i Lotniczy</div></div>
+<div class="box color-cezary">Dawid Soszka<div class="title-small">Spedytor Kolejowy i Lotniczy</div></div>
+<div class="box color-cezary">Ewa Dobrzyńska<div class="title-small">Ekspert ds. Obsługi Logistycznej Transportu Kolejowego i Morskiego</div></div>
+<div class="box color-cezary">Klaudia Murek<div class="title-small">Spedytor Morski i Kolejowy</div></div>
+<div class="box color-cezary">Kornelia Stasiołek<div class="title-small">Spedytor Morski i Kolejowy</div></div>
+<div class="box color-cezary">Maria Ozimek<div class="title-small">Ekspert ds. Obsługi Logistycznej Transportu Morskiego</div></div>
+<div class="box color-cezary">Martyna Ligus<div class="title-small">Straszy Specjalista ds. Obsługi Logistycznej Transportu Kolejowego i Morskiego</div></div>
+<div class="box color-cezary">Mateusz Górski<div class="title-small">Spedytor Morski i Kolejowy</div></div>
+<div class="box color-cezary">Piotr Biernat<div class="title-small">Ekspert ds. Obsługi Logistycznej Transportu Kolejowego i Morskiego</div></div>
+<div class="box color-kamil">Anna Zaborska<div class="title-small">Spedytor Drogowy FCL</div></div>
+<div class="box color-kamil">Katarzyna Mazurek<div class="title-small">Spedytor Drogowy LCL</div></div>
+</div>
+<div class="section hidden" id="patrycja">
+<div class="box color-patrycja">Andrzej Zagajewski<div class="title-small">Spedytor Międzynarodowy</div></div>
+<div class="box color-patrycja">Bartosz Witkowski<div class="title-small">Starszy spedytor drogowy</div></div>
+<div class="box color-patrycja">Dominika Dziedzic<div class="title-small">Spedytor Drogowy</div></div>
+<div class="box color-patrycja">Hubert Sadziak<div class="title-small">Spedytor Międzynarodowy</div></div>
+<div class="box color-patrycja">Mikołaj Mielczarek<div class="title-small">Spedytor Drogowy</div></div>
+<div class="box color-patrycja">Paulina Borek<div class="title-small">Spedytor Międzynarodowy</div></div>
+</div>
+</div>
+<script>
+const activeGroups = {};
+const openedElements = {};
+
+function toggleVisibility(group, id) {
+  // Jeśli kliknięto Bartłomieja, pokaż jego sekcję i ukryj wszystko inne
+  if (id === 'bartlomiej') {
+    document.querySelectorAll('.section').forEach(section => {
+      if (section.id !== 'bartlomiej' && section.id !== '') section.classList.add('hidden');
+    });
+    openedElements['main-group'] = null;
+    document.getElementById('bartlomiej').classList.remove('hidden');
+    document.querySelectorAll('.box[data-target="bartlomiej"]').forEach(el => el.closest('.section').classList.remove('hidden'));
+    return;
+  
+  }
+
+  // Jeśli kliknięto Barnabę, pokaż tylko jego sekcję i ukryj wszystko inne
+  if (id === 'barnaba') {
+    document.querySelectorAll('.section').forEach(section => {
+      if (section.id !== 'barnaba' && section.id !== '') section.classList.add('hidden');
+    });
+    openedElements['main-group'] = null;
+    document.getElementById('barnaba').classList.remove('hidden');
+    document.querySelectorAll('.box[data-target="barnaba"]').forEach(el => el.closest('.section').classList.remove('hidden'));
+    return;
+  
+  }
+
+  if (!openedElements[group]) openedElements[group] = null;
+  if (openedElements[group] && openedElements[group] !== id) {
+    const previous = document.getElementById(openedElements[group]);
+    if (previous) previous.classList.add('hidden');
+  }
+
+  if (group === 'main-group') {
+    Object.keys(openedElements).forEach(g => {
+      if (g !== 'main-group' && openedElements[g]) {
+        const prev = document.getElementById(openedElements[g]);
+        if (prev) prev.classList.add('hidden');
+        openedElements[g] = null;
+      }
+    });
+  }
+
+  const target = document.getElementById(id);
+  if (target) {
+    const currentlyVisible = !target.classList.contains('hidden');
+    if (currentlyVisible) {
+      target.classList.add('hidden');
+      openedElements[group] = null;
+    } else {
+      target.classList.remove('hidden');
+      openedElements[group] = id;
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.box[data-target]').forEach(box => {
+    box.addEventListener('click', () => {
+      const id = box.dataset.target;
+      const group = box.dataset.group;
+      toggleVisibility(group, id);
+    });
+  });
+});
+</script>
+</body>
+</html>
