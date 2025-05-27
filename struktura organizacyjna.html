@@ -223,6 +223,47 @@ background-repeat: no-repeat;
     transform: translateY(-2px);
   }
 
+
+.box {
+  position: relative;
+}
+
+.box::after {
+  content: attr(data-description);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: normal;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  width: 240px;
+  pointer-events: none;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.box:hover::after {
+  opacity: 1;
+}
+
+
+
+.box:hover::before {
+  opacity: 1;
+}
+
+
+
+
   </style>
 </head>
 <body>
@@ -235,28 +276,30 @@ background-repeat: no-repeat;
     <div></div> <div></div> <div class="wiceprezes">Wiceprezes Zarządu</div>
 
     <div class="column backoffice">
-      <div class="title">Pion Backoffice</div>
-      <div class="box">Dział Administracji i Kadr</div>
-      <div class="box">Dział Bezpieczeństwa i Jakości</div>
-      <div class="box">Dział Księgowości</div>
-    </div>
+  <div class="title">Pion Backoffice</div>
+  <div class="box" data-description="Zajmuje się dokumentacją pracowniczą, onboardingiem, umowami oraz bieżącą obsługą administracyjną firmy.">Dział Administracji i Kadr</div>
+  <div class="box" data-description="Nadzoruje zgodność operacji z procedurami, monitoruje ryzyka i dba o standardy jakościowe.">Dział Bezpieczeństwa i Jakości</div>
+  <div class="box" data-description="Zajmuje się realizacją płatności oraz rozliczeniami finansowymi z klientami i partnerami biznesowymi.">Dział Księgowości</div>
+
+</div>
+
 
     <div class="column sprzedaz">
       <div class="title">Pion Sprzedaży</div>
-      <div class="box">Departament Sprzedaży</div>
+      <div class="box" data-description="Odpowiada za pozyskiwanie klientów, przygotowywanie ofert, doradztwo i utrzymywanie relacji handlowych.">Departament Sprzedaży</div>
     </div>
 
     <div class="column operacyjny">
       <div class="title">Pion Operacyjny</div>
-      <div class="box">Dział MLK</div>
-      <div class="box">Dział Drogowy</div>
+      <div class="box" data-description="Zajmuje się obsługą operacyjną zleceń w gałęziach morskiej, lotniczej oraz kolejowej.">Dział MLK</div>
+      <div class="box" data-description="Odpowiada za planowanie i realizację transportów drogowych na terenie Polski i Europy.">Dział Drogowy</div>
     </div>
 
     <div></div>
 
     <div class="column it">
       <div class="title">Pion IT</div>
-      <div class="box">Dział IT</div>
+      <div class="box" data-description="Zapewnia wsparcie techniczne i dba o bezpieczeństwo danych.">Dział IT</div>
     </div>
   </div>
 </body>
